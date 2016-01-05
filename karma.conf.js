@@ -5,41 +5,31 @@ module.exports = function(config) {
     basePath: '',
 
 
-    // frameworks to use
-    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+    // frameworks to use, as we are using the jasmine, we included jasmine,if you want Qunit just use
+    //npm install karma-qunit --save-dev,same steps for including other testing frameworks
 
+        frameworks: ['jasmine'],
 
-    // list of files / patterns to load in the browser
-    files: [
+    /* Include the browsers here if needed, if you need firefox just install the browser depndencies
+    * with command npm install karma-firefox-launcher and
+    * include firefox like this:browser:['chrome','firefox']*/
+        browser:['Chrome'],
 
-      'lib/angular.min.js',
-      'lib/angular-mocks.js',
-      'app.js',
-      'controllers/addCtrl.js',
-      'test/**/*Spec.js'
-    ],
+    // list of files / patterns to load in the browser,
+    // include the files and there dependencies here
+         files: [
+                  'lib/angular.min.js',
+                  'lib/angular-mocks.js',
+                  'app.js',
+                  'controllers/*',
+                  'test/**/*Spec.js'
+                ],
 
+    // list of files to exclude,
+    // if we need to skip any test cases or the files to be tested include those files here
+    exclude: [ ],
 
-    // list of files to exclude
-    exclude: [
-    ],
-
-
-    // preprocess matching files before serving them to the browser
-    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    //preprocessors: {
-    //  '**/*.html': ['ng-html2js']
-    //},
-
-
-    // test results reporter to use
-    // possible values: 'dots', 'progress'
-    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
-
-
-    // web server port
+    // web server port,karma server's port, if you need to run the server on other port change here
     port: 9876,
 
 
@@ -58,15 +48,22 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome', 'IE', 'Safari'],
+    browsers: ['Chrome'],
 
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: false,
 
+
+    autoWatch:true,
+
+    /*When file modified this automatically monitors it and logs into the screen(command prompt)
+    , this monitors the files which are included. */
+        restartOnFileChange:true,
     // Concurrency level
     // how many browser should be started simultanous
     concurrency: Infinity
+
   })
 }
