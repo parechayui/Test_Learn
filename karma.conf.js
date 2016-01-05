@@ -4,16 +4,16 @@ module.exports = function(config) {
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
 
+      /* Include the browsers here if needed, if you need firefox just install the browser depndencies
+       * with command npm install karma-firefox-launcher and
+       * include firefox like this:browser:['chrome','firefox']*/
+      browser:['Chrome'],
 
     // frameworks to use, as we are using the jasmine, we included jasmine,if you want Qunit just use
     //npm install karma-qunit --save-dev,same steps for including other testing frameworks
 
         frameworks: ['jasmine'],
 
-    /* Include the browsers here if needed, if you need firefox just install the browser depndencies
-    * with command npm install karma-firefox-launcher and
-    * include firefox like this:browser:['chrome','firefox']*/
-        browser:['Chrome'],
 
     // list of files / patterns to load in the browser,
     // include the files and there dependencies here
